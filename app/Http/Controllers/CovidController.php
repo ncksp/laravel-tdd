@@ -15,4 +15,19 @@ class CovidController extends Controller
 
         Covid::create($request->all());
     }
+
+    public function getCovidFirstData(){
+        return [
+            "active" => 0,
+            "well" => 1000,
+            "dead" => 0,
+            "total" => 1000
+        ];
+    }
+
+    public function upload(Request $request){
+        $file = $request->file('image');
+
+        $file->move(storage_path('images').DIRECTORY_SEPARATOR, $file->getClientOriginalName());
+    }
 }

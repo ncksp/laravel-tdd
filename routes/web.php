@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 
 Route::post('covid', [\App\Http\Controllers\CovidController::class, 'store']);
+Route::post('covid/upload', [\App\Http\Controllers\CovidController::class, 'upload']);

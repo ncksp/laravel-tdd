@@ -12,9 +12,9 @@ class CovidCaseTest extends TestCase
     /**
      * A basic test example.
      *
-     * @return void
+     * @test
      */
-    public function testAddNewCase()
+    public function addNewCase()
     {
         $this->withoutExceptionHandling();
         $response = $this->post('covid',[
@@ -27,7 +27,10 @@ class CovidCaseTest extends TestCase
         $this->assertCount(1, Covid::all());
     }
 
-    public function testValidateData(){
+    /**
+     * @test
+     */
+    public function validateData(){
         $response = $this->post('covid',[
             'dead' => 0,
             'total' => 1000
